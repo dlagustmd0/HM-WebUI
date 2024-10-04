@@ -18,12 +18,13 @@ $(function () {
 
     // 마우스 휠을 조작했을 때
     $window.on("wheel", function (e) {
-        if (e.originalEvent.wheelDelta > 0) {
-            // 휠을 올렸을 때
-            $header.removeClass("hide");
-        } else {
-            // 휠을 내렸을 때
-            $header.addClass("hide");
-        }
+        // if (e.originalEvent.wheelDelta > 0) {
+        //     // 휠을 올렸을 때
+        //     $header.removeClass("hide");
+        // } else {
+        //     // 휠을 내렸을 때
+        //     $header.addClass("hide");
+        // }
+        e.originalEvent.wheelDelta > 0 ? $header.addClass("hide") : $header.removeClass("hide");
     });
 });
