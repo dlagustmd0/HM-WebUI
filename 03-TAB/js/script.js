@@ -5,11 +5,7 @@ $(() => {
 
     // 처음 세팅
     // $tabContent.eq(0).siblings().hide();
-    $tabContent.hide();
-    $tabContent.eq(0).show();
-
-    $tabMenu.removeClass("on");
-    $tabMenu.eq(0).addClass("on");
+    tabAction(0);
 
     $tabMenu.on("click", function (e) {
         // a의 기본 동작막기
@@ -18,12 +14,17 @@ $(() => {
         // 선택한 탭메뉴의 인덱스 구하기
         const tabIdx = $(this).index();
 
+        tabAction(tabIdx);
+    });
+
+    // 공동의 동작을 함수로 정의
+    function tabAction(idx) {
         // 탭메뉴 활성화
         $tabMenu.removeClass("on");
-        $tabMenu.eq(tabIdx).addClass("on");
+        $tabMenu.eq(idx).addClass("on");
 
         // 인덱스에 해당하는 $tabContent 보이기
         $tabContent.hide();
-        $tabContent.eq(tabIdx).show();
-    });
+        $tabContent.eq(idx).show();
+    }
 });
