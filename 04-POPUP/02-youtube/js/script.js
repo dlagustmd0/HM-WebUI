@@ -9,9 +9,14 @@ $(() => {
 
     // 비디오 리스트를 선택했을 때
     $videoItem.on("click", (e) => {
-        const videoLink = $(e.target).attr("data-link");
-        // const videoLink = $(e.target).data("link");
+        const item = $(e.target);
+        
+        let videoLink = item.attr("data-link");
+        videoLink += "?autoplay=1";
         $video.attr("src", videoLink);
+
+        const videoTitle = item.text();
+        $caption.text(videoTitle);
 
         // 팝업창 띄우기
         $dim.fadeIn();
@@ -24,6 +29,7 @@ $(() => {
     $btnClose.on("click", (e) => {
         $dim.fadeOut();
         $videoWrap.removeClass("active");
+        $video.attr("src", "");
     });
 
     // setTimeout(() => {
