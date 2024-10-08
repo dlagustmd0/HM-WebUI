@@ -2,6 +2,7 @@ $(() => {
     // 대상을 변수에 저장
     const $tabMenu = $(".tab-menu > li");
     const $tabContent = $(".tab-con-item");
+    const bgColor = ["red", "green", "blue"];
 
     // 처음 세팅
     // $tabContent.eq(0).siblings().hide();
@@ -26,5 +27,9 @@ $(() => {
         // 인덱스에 해당하는 $tabContent 보이기
         $tabContent.hide();
         $tabContent.eq(idx).show();
+
+        $("body").css({
+            backgroundColor: bgColor[idx],
+        });
     }
 });
