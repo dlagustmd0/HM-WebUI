@@ -10,7 +10,7 @@ $(() => {
     // 비디오 리스트를 선택했을 때
     $videoItem.on("click", (e) => {
         const item = $(e.target);
-        
+
         let videoLink = item.attr("data-link");
         videoLink += "?autoplay=1";
         $video.attr("src", videoLink);
@@ -31,9 +31,4 @@ $(() => {
         $videoWrap.removeClass("active");
         $video.attr("src", "");
     });
-
-    // setTimeout(() => {
-    //     $dim.fadeIn();
-    //     $videoWrap.addClass("active");
-    // }, 3000);
 });
